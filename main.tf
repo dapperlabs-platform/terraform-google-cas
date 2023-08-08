@@ -22,7 +22,7 @@ resource "random_id" "rand" {
 resource "google_privateca_ca_pool" "temporal-subordinate-ca-pool" {
   name     = "subordinate-ca-pool-${var.project_id}"
   location = var.region
-  tier     = "ENTERPRISE"
+  tier     = "DEVOPS"
   project  = var.project_id
   publishing_options {
     publish_ca_cert = true
@@ -37,7 +37,7 @@ resource "google_privateca_ca_pool" "temporal-subordinate-ca-pool" {
 resource "google_privateca_ca_pool" "temporal-root-ca-pool" {
   name     = "root-ca-pool-${var.project_id}"
   location = var.region
-  tier     = "ENTERPRISE"
+  tier     = "DEVOPS"
   project  = var.project_id
   publishing_options {
     publish_ca_cert = true
