@@ -54,3 +54,9 @@ variable "ignore_active_certificates_on_deletion" {
   type        = bool
   default     = false
 }
+
+variable "pool_name_extension" {
+  description = "Since you cannot ever re-use pool names, this variable allows you to add a new identifier to the end of the pool names in the event you ever need to recreate your pools"
+  type        = string
+  default     = ""
+}

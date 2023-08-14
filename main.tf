@@ -20,13 +20,13 @@ resource "random_id" "rand" {
 }
 
 resource "google_privateca_ca_pool" "temporal-subordinate-ca-pool" {
-  name     = "subordinate-ca-pool-${var.project_id}"
+  name     = "subordinate-ca-pool-${var.project_id}${var.pool_name_extension}"
   location = var.region
   tier     = "DEVOPS"
   project  = var.project_id
   publishing_options {
     publish_ca_cert = true
-    publish_crl     = true
+    publish_crl     = false
   }
   labels = {
     environment  = var.environment
@@ -35,13 +35,13 @@ resource "google_privateca_ca_pool" "temporal-subordinate-ca-pool" {
 }
 
 resource "google_privateca_ca_pool" "temporal-root-ca-pool" {
-  name     = "root-ca-pool-${var.project_id}"
+  name     = "root-ca-pool-${var.project_id}${var.pool_name_extension}"
   location = var.region
   tier     = "DEVOPS"
   project  = var.project_id
   publishing_options {
     publish_ca_cert = true
-    publish_crl     = true
+    publish_crl     = false
   }
   labels = {
     environment  = var.environment
